@@ -3,4 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.10 (Face Recognition Project - ExpoScience 2025)" />
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (FaceRecognitionProject_ExpoScience2025)" project-jdk-type="Python SDK" />
 </project>
