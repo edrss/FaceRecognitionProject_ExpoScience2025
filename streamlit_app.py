@@ -145,7 +145,7 @@ if st.session_state.captured_images:
     nom_personne   = st.sidebar.text_input("Nom", key="nom")
     prenom         = st.sidebar.text_input("Prénom", key="prenom")
     nationalite    = st.sidebar.text_input("Nationalité", key="nationalite")
-    date_naiss     = st.sidebar.date_input("Date de naissance", key="date_naiss")
+    date_naiss     = st.sidebar.date_input("Date de naissance", key="date_naiss", min_value=datetime(1900, 1, 1), max_value=datetime.now())
     sexe           = st.sidebar.selectbox("Sexe", ["Homme", "Femme", "Autre"], key="sexe")
     occupation     = st.sidebar.text_input("Occupation", key="occupation")
     email          = st.sidebar.text_input("Email", key="email")
@@ -213,7 +213,7 @@ if selected_id:
         new_prenom      = st.text_input("Prénom", value=data_sel.get("prenom", ""), key="modif_prenom")
         new_nationalite = st.text_input("Nationalité", value=data_sel.get("nationalite", ""), key="modif_nationalite")
         try:
-            default_date = datetime.strptime(data_sel.get("date_naissance", "2000-01-01"), "%Y-%m-%d")
+            default_date = datetime.strptime(data_sel.get("date_naissance", "2000-01-01"), "%Y-%m-%d", min_value=datetime(1900, 1, 1), max_value=datetime.now())
         except:
             default_date = datetime(2000, 1, 1)
         new_date_naiss  = st.date_input("Date de naissance", value=default_date, key="modif_date_naiss")
@@ -561,3 +561,4 @@ with col2:
                     st.warning(f"Aucune fiche disponible pour « {identf} » !")
     else:
         st.info("Aucune fiche n’a encore été installée.")
+
